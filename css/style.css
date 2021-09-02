@@ -1974,3 +1974,19 @@ article img.pull-right, article .align-right{
 @media (max-width: 360px) {
 
 }
+
+
+#contenidoTabla {
+	font-size: 15px;
+  }
+  
+  td {
+	font-size: 15px;
+	color: black;
+	font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  th {
+	font-size: 15px;
+	color:green;
+  }
