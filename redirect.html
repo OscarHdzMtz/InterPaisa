@@ -13,6 +13,7 @@
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <link rel="stylesheet" href="css/float.css">
     <link rel="stylesheet" href="css/flot_prueba.css">
+    <link rel="stylesheet" href="css/whats.css">
     <link rel="stylesheet" href="icomoon/style.css">
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <style type="text/css">
@@ -49,20 +50,20 @@
                                     <div class="alert alert-danger">$(error)</div>
                                     $(elif login-by != 'mac')
                                     <div style="background-color: #dddd;" class="alert">
-                                        <h4>Bienvenido a InterPaisa $(username) !</h4>
+                                        <h4>Bienvenido a InterPaisa <strong> $(username) ! </strong> </h4>
                                         <img src="img/conect.png" style="padding-bottom: 20px;">
                                         <br>
                                         <p style="color: green; font-size: 14px;">Conectado $(uptime) </p>
                                         <br>
                                         <!-- Facebook -->
-                                        <a class="btn btn-primary" style="background-color: #3b5998;" href="#!"
+                                        <a class="btn btn-primary" style="background-color: #3b5998;" href="https://www.facebook.com/"
                                             role="button"><i class="icon-facebook"></i></a>
                                         <!-- Youtube -->
-                                        <a class="btn btn-primary" style="background-color: #ed302f;" href="#!"
+                                        <a class="btn btn-primary" style="background-color: #ed302f;" href="https://www.youtube.com/"
                                             role="button"><i class="fab icon-youtube"></i></a>
                                         <!-- Whatsapp -->
-                                        <a class="btn btn-primary" style="background-color: #25d366;" href="#!"
-                                            role="button"><i class="fa fa-google-plus"></i></a>                                        
+                                        <a class="btn btn-primary" style="background-color: #25d366;" href="https://www.google.com/"
+                                            role="button"><i class="fa fa-google-plus"></i></a>
                                     </div>
                                     $(endif)
 
@@ -73,7 +74,7 @@
                                     <div class="panel-body" id="contenidoTabla">
 
                                         <table class="table table-bordered">
-                                            <tbody>                                                                                                                                                                                                                                            
+                                            <tbody>
                                                 <tr>
                                                     <th>IP address </th>
                                                     <td>$(ip)</td>
@@ -81,31 +82,18 @@
                                                 <tr>
                                                     <th>MAC Address</th>
                                                     <td>$(mac)</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Tiempo</th>
-                                                    <td>$(if limit-bytes-out)
-                                                        <script language=javascript>
-                                                            result = $(limit - bytes - out) / 1000
-                                                            document.write(result)
-                                                        </script> Kib $(endif) $(if limit-bytes-out ==
-                                                        '')Unlimited$(endif)
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Descarga / Subida</th>
-                                                    <td>$(bytes-out-nice) / $(bytes-in-nice)</td>
-                                                </tr>
+                                                </tr>                                               
                                                 $(if session-time-left)
                                                 <tr>
-                                                    <th>Tiempo de conexion</th>
-                                                    <td>$(uptime) / $(session-time-left)</td>
+                                                    <th>Tu ficha vence en:</th>
+                                                    <td>$(session-time-left)</td>
                                                 </tr>
-                                                $(else)                                              
+                                                $(else)
                                                 $(endif) $(if refresh-timeout)
                                                 <tr>
                                                     <th>Actualización de estado</th>
                                                     <td>$(refresh-timeout)</td>
+                                                <tr>
                                                     $(endif)
                                             </tbody>
                                         </table>
@@ -160,158 +148,158 @@
                     </div>
                     <!-- </a> -->
                 </button>
-            </div>      
+            </div>
 
             <h2 class="icon-circle-with-plus"></h2>
         </div>
     </div>
 
-  <!-- MODAL DE PRECIOS -->
-  <div>
-    <div class="modal fade" id="precios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 style="text-align: center" class="modal-title" id="exampleModalLabel">
-                         <label class="icon-price-tag"></label><strong>NUESTROS PRECIOS</strong>
-                    </h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p style="text-align: center; font-size: 13">Conoce nuestros precios de acuerdo a su lugar de
-                        residencia, <br> dando click en una de los siguentes botones</p>
-                    <p>
-                        <!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a> -->
-                        <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample">Toggle second element</button> -->
-                        <button style="background-color: #22be5b;" class="btn btn-success btn-block" type="button"
-                            data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false"
-                            aria-controls="multiCollapseExample1"><strong>San Cristobal Amatlan</strong></button>
-                    </p>
-                    <div class="row">
-                        <div class="col">
-                            <div class="collapse multi-collapse" id="multiCollapseExample1">
-                                <div class="card card-body">
-                                    <table class="table">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th style="color: green;" scope="col">Plan T/Corrido
-                                                </th>
-                                                <th style="color: green;" scope="col">Precio</th>
+    <!-- MODAL DE PRECIOS -->
+    <div>
+        <div class="modal fade" id="precios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 style="text-align: center" class="modal-title" id="exampleModalLabel">
+                            <label class="icon-price-tag"></label><strong>NUESTROS PRECIOS</strong>
+                        </h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="text-align: center; font-size: 13">Conoce nuestros precios de acuerdo a su lugar de
+                            residencia, <br> dando click en una de los siguentes botones</p>
+                        <p>
+                            <!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a> -->
+                            <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample">Toggle second element</button> -->
+                            <button style="background-color: #22be5b;" class="btn btn-success btn-block" type="button"
+                                data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false"
+                                aria-controls="multiCollapseExample1"><strong>San Cristobal Amatlan</strong></button>
+                        </p>
+                        <div class="row">
+                            <div class="col">
+                                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                    <div class="card card-body">
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th style="color: green;" scope="col">Plan T/Corrido
+                                                    </th>
+                                                    <th style="color: green;" scope="col">Precio</th>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td><strong>Ficha de 30 Min</strong></td>
-                                                <td>$3 Pesos</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td><strong>Ficha de 1 Hora</strong></td>
-                                                <td>$ 5 Pesos</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td><strong>Ficha de 3 Hora</strong></td>
-                                                <td>$ 12 Pesos</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td><strong>Ficha de 1 Dia</strong></td>
-                                                <td>$ 20 Pesos</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td><strong>Ficha de 1 Semana</strong></td>
-                                                <td>$ 50 Pesos</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">6</th>
-                                                <td><strong>Ficha de 1 Mes</strong></td>
-                                                <td>$ Contactanos</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td><strong>Ficha de 30 Min</strong></td>
+                                                    <td>$3 Pesos</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td><strong>Ficha de 1 Hora</strong></td>
+                                                    <td>$ 5 Pesos</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td><strong>Ficha de 3 Hora</strong></td>
+                                                    <td>$ 12 Pesos</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td><strong>Ficha de 1 Dia</strong></td>
+                                                    <td>$ 20 Pesos</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td><strong>Ficha de 1 Semana</strong></td>
+                                                    <td>$ 50 Pesos</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td><strong>Ficha de 1 Mes</strong></td>
+                                                    <td>$ Contactanos</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <p>
-                        <a style="background-color: #22be5b" class="btn btn-success btn-block"
-                            data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                            aria-controls="collapseExample">
-                            <strong>San Agustin Mixtepec y <br> San Pedro Amatlán</strong>
-                        </a>
-                    </p>
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th style="color: green;" scope="col">Plan T/Corrido
-                                        </th>
-                                        <th style="color: green;" scope="col">Precio</th>
+                        <p>
+                            <a style="background-color: #22be5b" class="btn btn-success btn-block"
+                                data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                                aria-controls="collapseExample">
+                                <strong>San Agustin Mixtepec y <br> San Pedro Amatlán</strong>
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th style="color: green;" scope="col">Plan T/Corrido
+                                            </th>
+                                            <th style="color: green;" scope="col">Precio</th>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td><strong>Ficha de 30 Min</strong></td>
-                                        <td>$5 Pesos</td>
-                                    </tr>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td><strong>Ficha de 30 Min</strong></td>
+                                            <td>$5 Pesos</td>
+                                        </tr>
 
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td><strong>Ficha de 1 Hora</strong></td>
-                                        <td>$8 Pesos</td>
-                                    </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td><strong>Ficha de 1 Hora</strong></td>
+                                            <td>$8 Pesos</td>
+                                        </tr>
 
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td><strong>Ficha de 3 Hora</strong></td>
-                                        <td>$15 Pesos</td>
-                                    </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td><strong>Ficha de 3 Hora</strong></td>
+                                            <td>$15 Pesos</td>
+                                        </tr>
 
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td><strong>Ficha de 1 Dia</strong></td>
-                                        <td>$25 Pesos</td>
-                                    </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td><strong>Ficha de 1 Dia</strong></td>
+                                            <td>$25 Pesos</td>
+                                        </tr>
 
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td><strong>Ficha de 1 Semana</strong></td>
-                                        <td>$70 Pesos</td>
-                                    </tr>
+                                        <tr>
+                                            <th scope="row">5</th>
+                                            <td><strong>Ficha de 1 Semana</strong></td>
+                                            <td>$70 Pesos</td>
+                                        </tr>
 
-                                    <tr>
-                                        <th scope="row">6</th>
-                                        <td><strong>Ficha de 1 Mes</strong></td>
-                                        <td>$ Contactanos</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        <tr>
+                                            <th scope="row">6</th>
+                                            <td><strong>Ficha de 1 Mes</strong></td>
+                                            <td>$ Contactanos</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button style="background-color: #e94234;" type="button" class="btn btn-danger"
-                        data-dismiss="modal">CERRAR</button>
-                    <!--  <button type="button" class="btn btn-primary">Save
+                    </div>
+                    <div class="modal-footer">
+                        <button style="background-color: #e94234;" type="button" class="btn btn-danger"
+                            data-dismiss="modal">CERRAR</button>
+                        <!--  <button type="button" class="btn btn-primary">Save
                     changes</button> -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
     <!-- MODAL TRABAJEMOS JUNTOS -->
     <div>
         <div class="modal fade" id="trabajemos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -320,7 +308,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 style="text-align: center" class="modal-title" id="exampleModalLabel">
-                            <label class="icon-shop"></label>  <strong>¡TRABAJEMOS JUNTOS!</strong>
+                            <label class="icon-shop"></label> <strong>¡TRABAJEMOS JUNTOS!</strong>
                         </h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -346,7 +334,8 @@
                                     8801</strong></h4>
                         </div>
                         <div align="center">
-                            <h4 style="color: #3b5998" <label class="icon-facebook"></label><strong> InterPaisaWisp</strong></h4>
+                            <h4 style="color: #3b5998" <label class="icon-facebook"></label><strong>
+                                    InterPaisaWisp</strong></h4>
                         </div>
                     </div>
 
@@ -415,219 +404,267 @@
     </div>
 
     <!-- MODAL PUNTOS DE VENTA -->
-    <div class="modal fade" id="exampleModal" tabindex="-1"
-    role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 style="text-align:center; color: black"
-                    class="modal-title" id="exampleModalLabel">
-                    <label class="icon-location"></label> <strong>PUNTOS DE VENTA</strong> 
-                </h3>
-                <button type="button" class="close"
-                    data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div style="font-size: 14px; color: black;"
-                class="modal-body">
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th style="color: green;" scope="col">
-                                San Cristobal Amatlan
-                            </th>
-                            <th style="color: green;" scope="col">
-                                Referencia</th>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 style="text-align:center; color: black" class="modal-title" id="exampleModalLabel">
+                        <label class="icon-location"></label> <strong>PUNTOS DE VENTA</strong>
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div style="font-size: 14px; color: black;" class="modal-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th style="color: green;" scope="col">
+                                    San Cristobal Amatlan
+                                </th>
+                                <th style="color: green;" scope="col">
+                                    Referencia</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td><strong>InterPaisa</strong></td>
-                            <td>Calle santo domingo #3</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td><strong>Pasteleria y
-                                    Pizzeria</strong></td>
-                            <td>Calle Libertad</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td><strong>Xbox VideoJuegos</strong>
-                            </td>
-                            <td>Detras del Municipio</td>
-                        </tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><strong>InterPaisa</strong></td>
+                                <td>Calle santo domingo #3</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><strong>Pasteleria y
+                                        Pizzeria</strong></td>
+                                <td>Calle Libertad</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><strong>Xbox VideoJuegos</strong>
+                                </td>
+                                <td>Detras del Municipio</td>
+                            </tr>
 
-                    </tbody>
-                </table>
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th style="color: green;" scope="col">
-                                San Agustin Mixtepec
-                            </th>
-                            <th style="color: green;" scope="col">
-                                Referencia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td><strong>Miscelanea El
-                                    Changarrito</strong></td>
-                            <td>Centro al lado del auditorio</td>
-                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th style="color: green;" scope="col">
+                                    San Agustin Mixtepec
+                                </th>
+                                <th style="color: green;" scope="col">
+                                    Referencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><strong>Miscelanea El
+                                        Changarrito</strong></td>
+                                <td>Centro al lado del auditorio</td>
+                            </tr>
 
-                    </tbody>
-                </table>
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th style="color: green;" scope="col">
-                                San Pedro Amatlan
-                            </th>
-                            <th style="color: green;" scope="col">
-                                Referencia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td><strong>San pedrito</strong></td>
-                            <td>Sobre carretera a Miahuatlan</td>
-                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th style="color: green;" scope="col">
+                                    San Pedro Amatlan
+                                </th>
+                                <th style="color: green;" scope="col">
+                                    Referencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><strong>San pedrito</strong></td>
+                                <td>Sobre carretera a Miahuatlan</td>
+                            </tr>
 
-                    </tbody>
-                </table>
-                <h3 style="text-align:center; color: black; padding-top: 30px"
-                    class="modal-title" id="exampleModalLabel">
-                    <label class="icon-signal"></label> <strong>REDES WIFI INTERPAISA</strong>
-                </h3>
-                <p
-                    style="text-align: center; font-size: 13; padding-top: 20px; color: black;">
-                    Conoce nuestras redes wifi para fichas,
-                    conectactate en
-                    cualquiera de ellas con una sola ficha</p>
+                        </tbody>
+                    </table>
+                    <h3 style="text-align:center; color: black; padding-top: 30px" class="modal-title"
+                        id="exampleModalLabel">
+                        <label class="icon-signal"></label> <strong>REDES WIFI INTERPAISA</strong>
+                    </h3>
+                    <p style="text-align: center; font-size: 13; padding-top: 20px; color: black;">
+                        Conoce nuestras redes wifi para fichas,
+                        conectactate en
+                        cualquiera de ellas con una sola ficha</p>
 
 
-                <p>
-                    <!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a> -->
-                    <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample">Toggle second element</button> -->
-                    <button style="background-color: #22be5b;"
-                        class="btn btn-success btn-block"
-                        type="button" data-toggle="collapse"
-                        data-target=".multi-collapse"
-                        aria-expanded="false"
-                        aria-controls="multiCollapseExample1"><strong>San
-                            Cristobal Amatlan</strong></button>
-                </p>
-                <div class="row">
-                    <div class="col">
-                        <div class="collapse multi-collapse"
-                            id="multiCollapseExample1">
-                            <div class="card card-body">
-                                <table class="table">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th style="color: green; text-align: center;"
-                                                scope="col">REDES
-                                                DISPONIBLES</th>
+                    <p>
+                        <!-- <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a> -->
+                        <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample">Toggle second element</button> -->
+                        <button style="background-color: #22be5b;" class="btn btn-success btn-block" type="button"
+                            data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false"
+                            aria-controls="multiCollapseExample1"><strong>San
+                                Cristobal Amatlan</strong></button>
+                    </p>
+                    <div class="row">
+                        <div class="col">
+                            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                <div class="card card-body">
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th style="color: green; text-align: center;" scope="col">REDES
+                                                    DISPONIBLES</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody align="center">
-                                        <tr>
-                                            <td><strong>INTERPAISA X
-                                                    FICHAS "951 417
-                                                    8801"</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>INTERPAISA X
-                                                    FICHAS-XBOX VIDEOJUEGOS</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>INTERPAISA X
-                                                    FICHAS C.
-                                                    LIBERTAD</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>INTERPAISA X
-                                                    FICHAS PIZZAS Y
-                                                    POSTRES</strong>
-                                            </td>
-                                        </tr>                                                                                                                                                                                 
-                                    </tbody>
-                                </table>
+                                            </tr>
+                                        </thead>
+                                        <tbody align="center">
+                                            <tr>
+                                                <td><strong>INTERPAISA X
+                                                        FICHAS "951 417
+                                                        8801"</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>INTERPAISA X
+                                                        FICHAS-XBOX VIDEOJUEGOS</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>INTERPAISA X
+                                                        FICHAS C.
+                                                        LIBERTAD</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>INTERPAISA X
+                                                        FICHAS PIZZAS Y
+                                                        POSTRES</strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <p>
-                    <a style="background-color: #22be5b"
-                        class="btn btn-success btn-block"
-                        data-toggle="collapse"
-                        href="#collapseExample123" role="button"
-                        aria-expanded="false"
-                        aria-controls="collapseExample">
-                        <strong>San Agustin Mixtepec y <br> San Pedro Amatlan</strong>
-                    </a>
-                </p>
-                <div class="collapse" id="collapseExample123">
-                    <div class="card card-body">
-                        <table class="table">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th style="color: green; text-align: center;"
-                                        scope="col">REDES
-                                        DISPONIBLES</th>
-                                </tr>
-                            </thead>
-                            <tbody align="center">
-                                <tr>
-                                    <td><strong>INTERPAISA X FICHAS
-                                            -951 417 8801-</strong>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>INTERPAISA X FICHAS
-                                            CENTRO</strong></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>INTERPAISA X FICHA SN. PEDRITO</strong>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>INTERPAISA X FICHA M. RIOS</strong>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <p>
+                        <a style="background-color: #22be5b" class="btn btn-success btn-block" data-toggle="collapse"
+                            href="#collapseExample123" role="button" aria-expanded="false"
+                            aria-controls="collapseExample">
+                            <strong>San Agustin Mixtepec y <br> San Pedro Amatlan</strong>
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseExample123">
+                        <div class="card card-body">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th style="color: green; text-align: center;" scope="col">REDES
+                                            DISPONIBLES</th>
+                                    </tr>
+                                </thead>
+                                <tbody align="center">
+                                    <tr>
+                                        <td><strong>INTERPAISA X FICHAS
+                                                -951 417 8801-</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>INTERPAISA X FICHAS
+                                                CENTRO</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>INTERPAISA X FICHA SN. PEDRITO</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>INTERPAISA X FICHA M. RIOS</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
 
-                <p>
-            </div>
-            <div class="modal-footer">
-                <button style="background-color: #e94234;"
-                    type="button" class="btn btn-danger"
-                    data-dismiss="modal">Cerrar</button>
-                <!--  <button type="button" class="btn btn-primary">Save
+                    <p>
+                </div>
+                <div class="modal-footer">
+                    <button style="background-color: #e94234;" type="button" class="btn btn-danger"
+                        data-dismiss="modal">Cerrar</button>
+                    <!--  <button type="button" class="btn btn-primary">Save
                     changes</button> -->
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- chat -->
+    <section>
+        <div id='whatsapp-chat' class='hide'>
+            <div class='header-chat'>
+                <div align="center" class='head-home'>
+                    <h3><strong>InterPaisa</strong></h3>
+                    <div class='info-avatar'><img
+                            src='https://sistemadecotizaciones.files.wordpress.com/2020/08/supportmale.png' /></div>
 
+                </div>
+
+                <div class='get-new'>
+                    <div id='get-nama'>Servicio al cliente</div>
+                </div>
+            </div>
+
+            <div class='start-chat'>
+                <div class='first-msg'><span>SERIVICIO DE INTERNET</span></div>
+                <div class='first-msg'><span>¡Hola! ¿En que podemos ayudarte?</span></div>
+                <div class='blanter-msg'><textarea id='chat-input' placeholder='Escribe un mensaje' maxlength='120'
+                        row='1'></textarea>
+                    <a href='#' onclick="enviar_mensaje();" id='send-it'>Enviar</a>
+                </div>
+            </div>
+            <div id='get-number'>529514178801</div><a class='close-chat' onclick="cerrar_chat();" href='#'>×</a>
+        </div>
+
+
+        <a class='blantershow-chat' onclick="mostrar_chat();" href='#' title='Show Chat'><svg width="20"
+                viewBox="0 0 24 24">
+                <defs />
+                <path fill="#eceff1"
+                    d="M20.5 3.4A12.1 12.1 0 0012 0 12 12 0 001.7 17.8L0 24l6.3-1.7c2.8 1.5 5 1.4 5.8 1.5a12 12 0 008.4-20.3z" />
+                <path fill="#4caf50"
+                    d="M12 21.8c-3.1 0-5.2-1.6-5.4-1.6l-3.7 1 1-3.7-.3-.4A9.9 9.9 0 012.1 12a10 10 0 0117-7 9.9 9.9 0 01-7 16.9z" />
+                <path fill="#fafafa"
+                    d="M17.5 14.3c-.3 0-1.8-.8-2-.9-.7-.2-.5 0-1.7 1.3-.1.2-.3.2-.6.1s-1.3-.5-2.4-1.5a9 9 0 01-1.7-2c-.3-.6.4-.6 1-1.7l-.1-.5-1-2.2c-.2-.6-.4-.5-.6-.5-.6 0-1 0-1.4.3-1.6 1.8-1.2 3.6.2 5.6 2.7 3.5 4.2 4.2 6.8 5 .7.3 1.4.3 1.9.2.6 0 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z" />
+            </svg>
+            Chatea con nosotros</a>
+    </section>
+    <!-- SCRITP WHATS -->
+    <script>
+        function enviar_mensaje() {
+            var a = document.getElementById("chat-input");
+            if ("" != a.value) {
+                var b = document.getElementById("get-number").innerHTML, c = document.getElementById("chat-input").value, d = "https://web.whatsapp.com/send", e = b, f = "&text=" + c;
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) var d = "whatsapp://send"; var g = d + "?phone=" + e + f; window.open(g, "_blank");
+            }
+        }
+
+        const whatsapp_chat = document.getElementById("whatsapp-chat");
+
+        function cerrar_chat() {
+            whatsapp_chat.classList.add("hide");
+            whatsapp_chat.classList.remove("show");
+
+        }
+
+        function mostrar_chat() {
+            whatsapp_chat.classList.add("show");
+            whatsapp_chat.classList.remove("hide");
+        }
+
+    </script>
 
 
 
